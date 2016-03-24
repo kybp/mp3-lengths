@@ -80,13 +80,15 @@ def print_total(lengths):
     print_length('Total', sum_dict(lengths))
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Print MP3 lengths')
+    parser = argparse.ArgumentParser(description='Print lengths of MP3 files')
     parser.add_argument('files', metavar='file', type=str, nargs='+',
-                        help='An MP3 or a directory to search')
-    parser.add_argument('-r', dest='recursive', action='store_true',
-                        help='Recursively search subdirectories')
-    parser.add_argument('-t', dest='get_total', action='store_true',
-                        help='Only print the total length for all files')
+                        help='an MP3 or a directory to search')
+    parser.add_argument('-r', '--recursive',
+                        dest='recursive', action='store_true',
+                        help='recursively search subdirectories')
+    parser.add_argument('-t', '--total',
+                        dest='get_total', action='store_true',
+                        help='only print the total length for all files')
     parser.set_defaults(recursive=False, get_total=False)
     args = parser.parse_args()
 
